@@ -111,18 +111,18 @@ class Option extends Element
             throw new Exception('Option element must contain a "text" element');
         }
 
-        $this->text->validateWithLength(75, 1);
+        $this->text->validateWithLength(150, 1);
 
         if (!is_string($this->value)) {
             throw new Exception('Option element must have a "value" value');
         }
 
-        Text::validateString($this->value, 75);
+        Text::validateString($this->value, 150);
 
         $parent = $this->getParent();
 
         if (!empty($this->description)) {
-            $this->description->validateWithLength(75, 1);
+            $this->description->validateWithLength(150, 1);
             if ($parent && !in_array($parent->getType(), [Type::CHECKBOXES, Type::RADIO_BUTTONS], true)) {
                 throw new Exception('Option "description" can only be applied to checkbox and radio button groups.');
             }
